@@ -8,6 +8,7 @@ import { DataService } from '../services/data.service';
 })
 export class HomePage {
   myScenes = [];
+  endings = [];
   //gsx$id
   //gsx$scene
   //gsx$choice1
@@ -21,15 +22,32 @@ export class HomePage {
       for(let s of x.feed.entry){
         let nFO ={
           scene: s.gsx$scene.$t,
-          option1: s.gsx$choice1$t,
+          option1: s.gsx$choice1.$t,
 
         };
         this.myScenes.push(nFO);
-        console.log(this.myScenes);
+        //console.log(this.myScenes);
+
+        
+  
+        /*dService.getEndings().subscribe( e =>{
+          for(let i of e. )
+        })*/
         
       }
     }
     )
+    dService.getEndings().subscribe(e => {
+      for (let i of e.feed.entry){
+        let end ={
+          endID: i.gsx$id.$t,
+          endingS: i.gsx$endingscene.$t,
+          endType: i.gsx$endingtype.$t,
+        };
+        this.endings.push(end);
+        console.log(this.endings)
+      }
+    })
   }
 
 
