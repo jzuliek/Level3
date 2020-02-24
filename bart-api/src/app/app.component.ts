@@ -12,7 +12,7 @@ import { StationInfo } from './interfaces/station-info';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent implements OnInit {
-  
+
   public selectedIndex = 0;
   
   stationName: StationInfo []=[];
@@ -56,8 +56,6 @@ export class AppComponent implements OnInit {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private bService: BartService,
-    
-  
     
   ) {
     this.initializeApp();
