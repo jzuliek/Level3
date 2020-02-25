@@ -14,6 +14,7 @@ export class BartService {
   private stnInfo;
 
   private stations: StationInfo[] = [];
+  
 
   constructor(private http: HttpClient) {
     this.getStation();
@@ -31,6 +32,7 @@ export class BartService {
             abbr: stn.abbr,
             address: stn.address,
             city: stn.city,
+            county:stn.county,
             zipcode: stn.zipcode
           }
           this.stations.push(info);
@@ -39,6 +41,15 @@ export class BartService {
       }
     )
 
+  }
+
+  getDestiny(){
+    
+
+  }
+
+  getDepart(url:string){
+    
   }
 
   sideMenu(){

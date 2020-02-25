@@ -14,6 +14,13 @@ import { StationInfo } from './interfaces/station-info';
 export class AppComponent implements OnInit {
 
   public selectedIndex = 0;
+
+    name;
+    abbr;
+    address;
+    city;
+    county;
+    zipcode;
   
   stationName: StationInfo []=[];
 
@@ -49,7 +56,6 @@ export class AppComponent implements OnInit {
       icon: 'warning'
     }
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
 
   constructor(
     private platform: Platform,
@@ -66,6 +72,15 @@ export class AppComponent implements OnInit {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+  }
+
+  setStation(abbr){
+    let departURL1 = 'http://api.bart.gov/api/etd.aspx?cmd=etd&orig=';
+    let departURL2 = abbr;
+    let departURL3 = '&key=Z2R9-5KQ2-9SYT-DWE9&json=y';
+    let departURL = departURL1+departURL2+departURL3;
+    console.log(departURL);
+   
   }
 
   ngOnInit() {

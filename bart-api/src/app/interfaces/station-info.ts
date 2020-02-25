@@ -3,5 +3,6 @@ export interface StationInfo {
     abbr: string,
     address: string,
     city: string,
+    county:string,
     zipcode: string
 }
