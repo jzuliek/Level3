@@ -1,7 +1,8 @@
 {
   "name": "Bart API",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }
