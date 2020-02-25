@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { SceneFace } from '../interfaces/scene-face';
+import { Endings } from '../interfaces/endings';
 
 @Injectable({
   providedIn: 'root'
@@ -10,20 +11,25 @@ export class DataService {
 
   private url ='https://spreadsheets.google.com/feeds/list/1sI_jjroTBQ7LBTTNS2jZ9Nuhu4K4u7LAmmYoBqPgcIE/1/public/full?alt=json';
   private urlE = 'https://spreadsheets.google.com/feeds/list/1sI_jjroTBQ7LBTTNS2jZ9Nuhu4K4u7LAmmYoBqPgcIE/2/public/full?alt=json';
-  ///anything marked between notes is new jt notes and for refrence 
-  //jt notes
+  ///anything marked between notes is new notes and for refrence 
+  
   private googleSheet;
+  private endSheet;
+
   private callScene: SceneFace[] =[];
+  private endScene: Endings[] = [];
+
   private audio = new Audio();
   //
   
 
   constructor(private http: HttpClient) { 
     this.parseData();
+    this.getEnd();
     
   }
   //retrieve data from google sheet
-  //jt notes
+ 
   
   parseData(){
     this.googleSheet = this.http.get(this.url);
@@ -38,14 +44,32 @@ export class DataService {
             choice2: s.gsx$choice2.$t,
             result1: s.gsx$result1.$t,
             result2: s.gsx$result2.$t,
-            ending: s.gsx$ending.$t as boolean
+            ending: s.gsx$ending.$t 
           };
           this.callScene.push(info)
         }
 
-        console.log(this.callScene)
+        console.log(this.callScene);
     });   
 
+  }
+
+  getEnd(){
+    this.endSheet = this.http.get(this.urlE);
+    this.endSheet.subscribe(
+      x => {
+        for(let e of x.feed.entry){
+          let ends: Endings ={
+            endId: e.gsx$id.$t as number,
+            ending: e.gsx$endingscene.$t,
+            endType: e.gsx$endingtype.$t
+            
+          };
+          this.endScene.push(ends);
+        }
+        console.log(this.endScene);
+      })
+    
   }
 
 
@@ -58,10 +82,23 @@ export class DataService {
     return this.callScene[0];
   }
 
-  playMusic(){
-    //this.audio.src=
-    //this.audio.autoplay =true;
+  getEndscene(endId:number){
+    return this.endScene[endId-16]
+
   }
+
+  playMusic(){
+    this.audio.src= '../assets/fart.mp3';
+    this.audio.autoplay =true;
+    
+  }
+  stopM(){
+    
+    this.audio.pause();
+  }
+
+
+  
   /////////
 
   getData(){

@@ -7,8 +7,7 @@ import { DataService } from '../services/data.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  myScenes = [];
-  endings = [];
+
   //gsx$id
   //gsx$scene
   //gsx$choice1
@@ -18,6 +17,22 @@ export class HomePage {
   //gsx$ending
 
   constructor(private dService: DataService) {
+    dService.playMusic();
+
+  }
+
+  play(){
+   this.dService.playMusic();
+  }
+  stop(){
+    this.dService.stopM();
+  }
+
+
+}
+
+/*
+
     dService.getData().subscribe(x => {
       for(let s of x.feed.entry){
         let nFO ={
@@ -30,9 +45,9 @@ export class HomePage {
 
         
   
-        /*dService.getEndings().subscribe( e =>{
+        dService.getEndings().subscribe( e =>{
           for(let i of e. )
-        })*/
+        })
         
       }
     }
@@ -48,8 +63,5 @@ export class HomePage {
         console.log(this.endings)
       }
     })
-  }
 
-
-
-}
+*/

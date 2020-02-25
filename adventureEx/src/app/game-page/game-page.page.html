@@ -5,9 +5,17 @@
 </ion-header>
 
 <ion-content>
+<ion-grid *ngIf = "endBool ===false; else end">
 
   <h1>{{displayScene.scene}}</h1>
   <ion-button (click) = 'nextScene(displayScene.result1)' color='dark'>{{displayScene.choice1}}</ion-button>  
   <ion-button (click) = 'nextScene(displayScene.result2)' color='medium'>{{displayScene.choice2}}</ion-button>
+  
+</ion-grid>
+<ng-template #end>
+
+  <h6>{{displayEnd.ending}}</h6>
+  <ion-button expand="block" color="light" routerLink="/home">Return to Title</ion-button>
+</ng-template>
 
 </ion-content>

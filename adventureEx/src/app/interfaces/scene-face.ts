@@ -5,5 +5,5 @@ export interface SceneFace {
     choice2: string,
     result1: string,
     result2: string,
-    ending: boolean,
+    ending: string,
 }

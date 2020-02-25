@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      My Adventure
+    <ion-title  class="ion-text-center">
+      A Stroll at The Park
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -17,6 +17,10 @@
     
   <div class="col">
     <ion-button [routerLink]="['/game-page']" shape="round">Play</ion-button>
+    <ion-item>
+      <ion-label>music</ion-label>
+      <ion-toggle  (ionChange) = 'stop()'></ion-toggle>
+    </ion-item>
     
   </div>
   </div>
