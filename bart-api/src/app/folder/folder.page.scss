@@ -1,5 +1,5 @@
 ion-menu-button {
-  color: var(--ion-color-primary);
+  color: var(--ion-color-BLUE);
 }
 
 #container {
@@ -29,4 +29,21 @@ ion-menu-button {
 
 ion-content ion-toolbar {
   --background: transparent;
+}
+.BLUE{
+  color: blue;
+  --background-color: white;
+  
+}
+.YELLOW{
+  color: yellow;
+}
+.GREEN{
+  color:green;
+}
+.RED{
+  color: red;
+}
+.ORANGE{
+  color: orange;
 }

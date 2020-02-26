@@ -14,7 +14,7 @@
       <ion-list>
         <ion-item>
           <ion-label>
-            <div class ='ion-text-center' *ngIf ="folder === 'Inbox'"><h1>HOME</h1></div>
+            <div *ngIf ="folder === 'Inbox'"><h1>Home</h1></div>
             <h1>{{name}}</h1>
           </ion-label>
         </ion-item>
@@ -31,9 +31,10 @@
       <ion-label>{{d.destination}}</ion-label>
     </ion-item-divider>
     <ion-item *ngFor='let e of d.estimate'>
-      <ion-label>{{e.minutes}} Minutes</ion-label>
-      <ion-label>Platform {{e.platform}}</ion-label>
-      <ion-label> {{e.direction}}</ion-label>
+        <ion-label>{{e.minutes}} Mins</ion-label>
+        <ion-label>Platform {{e.platform}}</ion-label>
+        <ion-label> {{e.direction}}</ion-label>
+        <ion-label class ='{{e.color}}'>{{e.color}}</ion-label>
     </ion-item>
   </ion-list>
 
