@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
+import { DataService } from '../services/data.service';
+import { Departure } from '../interfaces/departure';
 
 @Component({
   selector: 'app-folder',
@@ -9,11 +10,33 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class FolderPage implements OnInit {
   public folder: string;
+  home:boolean;
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  destination = [];
+  name = this.dService.town;
+  address = this.dService.address;
+  city = this.dService.city;
+  county = this.dService.county;
+  zipcode = this.dService.zipcode;
 
-  ngOnInit() {
-    this.folder = this.activatedRoute.snapshot.paramMap.get('id');
-  }
+constructor(
+  private dService: DataService,
+  private activatedRoute: ActivatedRoute
+
+) { }
+ 
+
+
+ngOnInit() {
+
+  this.folder = this.activatedRoute.snapshot.paramMap.get('id');
+  
+  this.dService.getStations();
+  this.destination = this.dService.depart;
 
 }
+
+
+
+}
+

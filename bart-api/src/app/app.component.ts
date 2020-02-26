@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { BartService } from './services/bart.service';
-import { StationInfo } from './interfaces/station-info';
+import { Station } from './interfaces/station';
+import { DataService } from './services/data.service';
 
 @Component({
   selector: 'app-root',
@@ -12,59 +12,32 @@ import { StationInfo } from './interfaces/station-info';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent implements OnInit {
-
   public selectedIndex = 0;
+  appPages: Station[] = this.dService.stations;
 
-    name;
-    abbr;
-    address;
-    city;
-    county;
-    zipcode;
-  
-  stationName: StationInfo []=[];
-
-  public appPages = [
-    {
-      title: 'Inbox',
-      url: '/folder/Inbox',
-      icon: 'mail'
-    },
-    {
-      title: 'Outbox',
-      url: '/folder/Outbox',
-      icon: 'paper-plane'
-    },
-    {
-      title: 'Favorites',
-      url: '/folder/Favorites',
-      icon: 'heart'
-    },
-    {
-      title: 'Archived',
-      url: '/folder/Archived',
-      icon: 'archive'
-    },
-    {
-      title: 'Trash',
-      url: '/folder/Trash',
-      icon: 'trash'
-    },
-    {
-      title: 'Spam',
-      url: '/folder/Spam',
-      icon: 'warning'
-    }
-  ];
 
   constructor(
+    private dService: DataService,
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar,
-    private bService: BartService,
-    
+    private statusBar: StatusBar
   ) {
     this.initializeApp();
+  }
+
+  setStation(abbr:string, name:string, address:string, city:string, county:string, zipcode:string){
+    let dUrl1 = 'http://api.bart.gov/api/etd.aspx?cmd=etd&orig=';
+    let dUrl2 = abbr;
+    let dUrl3 = '&key=Z2R9-5KQ2-9SYT-DWE9&json=y';
+    let dUrl = dUrl1+dUrl2+dUrl3;
+    console.log(dUrl);
+    this.dService.town = name;
+    this.dService.address = address;
+    this.dService.city = city; 
+    this.dService.county = county;
+    this.dService.zipcode = zipcode;
+    console.log(this.dService.town);
+    this.dService.getDestination(dUrl);
   }
 
   initializeApp() {
@@ -73,21 +46,10 @@ export class AppComponent implements OnInit {
       this.splashScreen.hide();
     });
   }
-
-  setStation(abbr){
-    let departURL1 = 'http://api.bart.gov/api/etd.aspx?cmd=etd&orig=';
-    let departURL2 = abbr;
-    let departURL3 = '&key=Z2R9-5KQ2-9SYT-DWE9&json=y';
-    let departURL = departURL1+departURL2+departURL3;
-    console.log(departURL);
-   
-  }
-
   ngOnInit() {
-    this.stationName = this.bService.sideMenu();
     const path = window.location.pathname.split('folder/')[1];
     if (path !== undefined) {
-      this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
+      this.selectedIndex = this.appPages.findIndex(page => page.name.toLowerCase() === path.toLowerCase());
     }
   }
 }

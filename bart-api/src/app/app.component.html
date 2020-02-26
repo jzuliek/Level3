@@ -3,17 +3,14 @@
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
         <ion-list id="inbox-list">
-          <ion-list-header>Bart</ion-list-header>
-          <ion-note>Your Station</ion-note>
-
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of stationName; let i = index">
-            <ion-item (click)="setStation(p.abbr)" routerDirection="root" routerLink="/folder/{{p.abbr}}" lines="none" detail="false" [class.selected]="selectedIndex == i">
-              <ion-label>{{ p.name}}</ion-label>
+          <ion-list-header>Stations</ion-list-header>
+          <ion-note>Your Start Location</ion-note>
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+            <ion-item (click)="setStation(p.abbr, p.name, p.address, p.city, p.county, p.zipcode)"  routerLink="/folder/{{p.abbr}}" lines="none" detail="false" >
+              <ion-label>{{p.name}}</ion-label>
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
-
-    
       </ion-content>
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>
