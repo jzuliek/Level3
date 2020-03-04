@@ -1,0 +1,17 @@
+/Users/coconut/Desktop/Level3/InventoryApi/bin/Debug/netcoreapp3.1/appsettings.Development.json
+/Users/coconut/Desktop/Level3/InventoryApi/bin/Debug/netcoreapp3.1/appsettings.json
+/Users/coconut/Desktop/Level3/InventoryApi/bin/Debug/netcoreapp3.1/Properties/launchSettings.json
+/Users/coconut/Desktop/Level3/InventoryApi/bin/Debug/netcoreapp3.1/InventoryApi.deps.json
+/Users/coconut/Desktop/Level3/InventoryApi/bin/Debug/netcoreapp3.1/InventoryApi.runtimeconfig.json
+/Users/coconut/Desktop/Level3/InventoryApi/bin/Debug/netcoreapp3.1/InventoryApi.runtimeconfig.dev.json
+/Users/coconut/Desktop/Level3/InventoryApi/bin/Debug/netcoreapp3.1/InventoryApi.dll
+/Users/coconut/Desktop/Level3/InventoryApi/bin/Debug/netcoreapp3.1/InventoryApi.pdb
+/Users/coconut/Desktop/Level3/InventoryApi/obj/Debug/netcoreapp3.1/InventoryApi.csprojAssemblyReference.cache
+/Users/coconut/Desktop/Level3/InventoryApi/obj/Debug/netcoreapp3.1/InventoryApi.MvcApplicationPartsAssemblyInfo.cache
+/Users/coconut/Desktop/Level3/InventoryApi/obj/Debug/netcoreapp3.1/InventoryApi.AssemblyInfoInputs.cache
+/Users/coconut/Desktop/Level3/InventoryApi/obj/Debug/netcoreapp3.1/InventoryApi.AssemblyInfo.cs
+/Users/coconut/Desktop/Level3/InventoryApi/obj/Debug/netcoreapp3.1/InventoryApi.RazorTargetAssemblyInfo.cache
+/Users/coconut/Desktop/Level3/InventoryApi/obj/Debug/netcoreapp3.1/staticwebassets/InventoryApi.StaticWebAssets.Manifest.cache
+/Users/coconut/Desktop/Level3/InventoryApi/obj/Debug/netcoreapp3.1/staticwebassets/InventoryApi.StaticWebAssets.xml
+/Users/coconut/Desktop/Level3/InventoryApi/obj/Debug/netcoreapp3.1/InventoryApi.dll
+/Users/coconut/Desktop/Level3/InventoryApi/obj/Debug/netcoreapp3.1/InventoryApi.pdb

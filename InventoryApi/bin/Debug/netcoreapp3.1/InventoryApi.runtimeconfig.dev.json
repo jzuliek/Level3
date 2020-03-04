@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "/Users/coconut/.dotnet/store/|arch|/|tfm|",
+      "/Users/coconut/.nuget/packages"
+    ]
+  }
+}

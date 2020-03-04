@@ -1,0 +1,16 @@
+{
+  "FilePath": "/Users/coconut/Desktop/Level3/InventoryApi/InventoryApi.csproj",
+  "Configuration": {
+    "ConfigurationName": "MVC-3.0",
+    "LanguageVersion": "3.0",
+    "Extensions": [
+      {
+        "ExtensionName": "MVC-3.0"
+      }
+    ]
+  },
+  "ProjectWorkspaceState": null,
+  "RootNamespace": "InventoryApi",
+  "Documents": [],
+  "SerializationFormat": "0.2"
+}
